@@ -16,11 +16,6 @@ kotlin {
 
     jvm()
 
-    js {
-        browser()
-        binaries.executable()
-    }
-
     iosArm64 {
         compilations.getByName("main") {
             val Lottie by cinterops.creating {
@@ -94,18 +89,6 @@ kotlin {
                 implementation(libs.ktor.client.java)
             }
         }
-
-        val jsMain by getting {
-            dependsOn(skiaMain)
-            dependencies {
-                implementation(libs.ktor.client.js)
-            }
-        }
-
-        val wasmJsMain by getting {
-            dependsOn(skiaMain)
-        }
-
     }
 }
 
